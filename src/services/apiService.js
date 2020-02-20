@@ -7,6 +7,15 @@ const client = axios.create({
 
 export const getAllUsers = async () => {
     const response = await client.get("/users");
-    const users = response.data;
-    return users;
+    return response.data;
+};
+
+export const addUser = async (username) => {
+    const response = await client.post(`/users/${username}`);
+    return response.data;
+};
+
+export const deleteUser = async (username) => {
+    const response = await client.delete(`/users/${username}`);
+    return response.data;
 };

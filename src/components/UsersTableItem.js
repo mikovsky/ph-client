@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import GithubIcon from "../assets/github.svg";
 
 const UsersTableItem = props => {
     const { username, name, avatarUrl, publicRepositories, followers, createdAt, htmlUrl } = props.user;
@@ -19,8 +20,13 @@ const UsersTableItem = props => {
             <td>{followers}</td>
             <td>{moment(createdAt).format("MMMM Do YYYY")}</td>
             <td>
-                {/* eslint-disable-next-line */}
-                <a href={htmlUrl} target="_blank">Profile</a>
+                <div className="ui center aligned">
+                    {/* eslint-disable-next-line */}
+                    <a href={htmlUrl} target="_blank"><img src={GithubIcon} style={{ maxWidth: "20px" }} alt="" /></a>
+                </div>
+            </td>
+            <td className="ui center aligned">
+                <button onClick={() => props.handleDelete(username)} className="ui negative basic button">Delete</button>
             </td>
         </tr>
     );

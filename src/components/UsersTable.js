@@ -1,18 +1,9 @@
-import React, { useEffect, useReducer } from "react";
+import React from "react";
 import UsersTableItem from "./UsersTableItem";
-import { getAllUsers } from "../services/apiService";
 
-const UsersTable = () => {
-    const [state, dispatch] = useReducer((state, action) => ({ users: action.payload }), { users: [] });
+const UsersTable = props => {
 
-    useEffect(() => {
-        (async () => {
-            const allUsers = await getAllUsers();
-            dispatch({ payload: allUsers });
-        })();
-    }, []);
-
-    const renderTableItems = () => state.users.map(user => <UsersTableItem key={user.id} user={user} />);
+    const renderTableItems = () => props.users.map(user => <UsersTableItem key={user.id} user={user} handleDelete={props.handleDelete} />);
 
     return (
         <table className="ui celled table">
@@ -23,6 +14,7 @@ const UsersTable = () => {
                     <th>Followers</th>
                     <th>Join Date</th>
                     <th>Profile</th>
+                    <th>Delete User</th>
                 </tr>
             </thead>
             <tbody>

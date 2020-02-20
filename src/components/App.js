@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, NavLink, Redirect, Route, Switch } from "react-router-dom";
-import UsersTable from "./UsersTable";
+import UsersPage from "../pages/UsersPage";
 
 const App = () => {
     return (
@@ -15,10 +15,10 @@ const App = () => {
                         <Redirect to="/users" />
                     </Route>
                     <Route path="/users">
-                        <UsersTable />
+                        <UsersPage />
                     </Route>
+                    <h2>Repositories Page</h2>
                     <Route path="/repositories">
-                        <h2>Repositories Page</h2>
                     </Route>
                     <Route path="/*">
                         <h3>404 - Page Not Found</h3>
