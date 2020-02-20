@@ -15,8 +15,9 @@ Set of views available in web ui
     * Avatar/Username/Name
     * Public Repositories Count
     * Followers Count
-    * Link to profile
     * Join Date
+    * Link to profile
+    * Delete Button
 
 
 ## 2. Repositories /repositories
